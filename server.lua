@@ -13,9 +13,11 @@ AddEventHandler("syn_alert:sendalert", function(players, job,alert,blip)
     for z, m in pairs(players) do
         local User = VorpCore.getUser(m)
         local used = User.getUsedCharacter
-        if used.job == job then
-            TriggerClientEvent("vorp:TipRight", m, alert , 50000)
-            TriggerClientEvent("syn_alert:createblip",m,blip)
+        for k,v in pairs(job) do 
+            if used.job == v then
+                TriggerClientEvent("vorp:TipRight", m, alert , 50000)
+                TriggerClientEvent("syn_alert:createblip",m,blip)
+            end
         end
     end 
 end)

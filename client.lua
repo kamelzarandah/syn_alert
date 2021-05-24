@@ -18,12 +18,12 @@ Citizen.CreateThread(function()
             if v.deadcheck then 
                 if IsEntityDead(PlayerPedId())
                     v.blip.coords = GetEntityCoords(PlayerPedId())
-                    TriggerServerEvent("syn_alert:sendalert",GetPlayers(),k,v.msg,v.blip)
+                    TriggerServerEvent("syn_alert:sendalert",GetPlayers(),v.jobs,v.msg,v.blip)
                     cooldown = true
                 end
             else
                 v.blip.coords = GetEntityCoords(PlayerPedId())
-                TriggerServerEvent("syn_alert:sendalert",GetPlayers(),k,v.msg,v.blip)
+                TriggerServerEvent("syn_alert:sendalert",GetPlayers(),v.jobs,v.msg,v.blip)
                 cooldown = true
             end
         end, false)
