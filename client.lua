@@ -16,7 +16,7 @@ Citizen.CreateThread(function()
     for k,v in pairs(Config.alerts) do 
         RegisterCommand(v.command, function(source, args, rawCommand)
             if v.deadcheck then 
-                if IsEntityDead(PlayerPedId())
+                if IsEntityDead(PlayerPedId()) then
                     v.blip.coords = GetEntityCoords(PlayerPedId())
                     TriggerServerEvent("syn_alert:sendalert",GetPlayers(),v.jobs,v.msg,v.blip)
                     cooldown = true
